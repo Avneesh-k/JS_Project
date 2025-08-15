@@ -1,0 +1,29 @@
+.container{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+.box_container{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+.box{
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+
+    
+}
+.box1{
+    background-color: gray;
+}
+.box2{
+    background-color: white;
+}
+.box3{
+    background-color: blue;
+}
+.box4{
+    background-color: yellow;
+}
