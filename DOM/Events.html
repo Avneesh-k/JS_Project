@@ -44,5 +44,11 @@
         e.stopPropagation()
         console.log("google clicked")
     })
+
+    //Remove Iamges 
+    document.querySelector("#images").addEventListener('click',function(e){
+        let removeelement = e.target.parentNode
+        removeelement.remove()
+    })
 </script>
 </html>

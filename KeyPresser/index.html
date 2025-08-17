@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+      display: flex;              /* use flexbox */
+      flex-direction: column;     /* stack button + text vertically */
+      justify-content: center;    /* center vertically */
+      align-items: center;        /* center horizontally */
+      height: 100vh;              /* full screen height */
+      margin: 0;                  /* remove default margin */
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+       table {
+      border-collapse: collapse;   /* remove double borders */
+      margin: 20px auto;          /* center table */
+      font-size: 18px;
+    }
+    th, td {
+      border: 2px solid black;     /* border around cells */
+      padding: 10px 20px;          /* spacing */
+      text-align: center;
+    }
+    th {
+      background: #f0f0f0;         /* light gray header */
+    }
+    </style>
+</head>
+
+<body>
+    <button id="click">Click me</button>
+    <p id="insert">Watch Magic here</p>
+</body>
+<script>
+    const click = document.getElementById('click')
+    let insert = document.getElementById('insert')
+
+    window.addEventListener('keydown',(e)=>{
+        insert.innerHTML = `
+            <div class="color">
+        <table>
+            <tr>
+                <th>Key</th>
+                <th>KeyCode</th>
+                <th>Code</th>
+            </tr>
+            <tr>
+                <th>${e.key ===" "? "Space":e.key}</th>
+                <th>${e.keyCode}</th>
+                <th>${e.code}</th>
+            </tr>
+        </table>
+    </div>
+        `
+        
+        
+    })
+</script>
+</html>
