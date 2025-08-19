@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+</head>
+<style>
+    * {
+        margin: 0;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    .description {
+        background-color: skyblue;
+    }
+
+    .buttons {
+        margin-top: 10px;
+    }
+
+    .buttons button {
+        margin: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: rgb(143, 197, 239);
+    }
+
+    .buttons button:hover {
+        background-color: #ceb6b6;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="image">
+            <img id="slider" src="images/Dhaulagiri.webp" alt="Cho Oyu" style="width: 100vw; height: 80vh;">
+        </div>
+        <div class="description">
+            <h1>Name:<span id="name">Dhaulagiri</span></h1>
+            <h1>Height:<span id="height">8,188m</span></h1>
+            <h1>Location:<span id="place">Himalayas, Nepal/Tibet Autonomous Region, China</span></h1>
+        </div>
+        <div class="buttons">
+            <button id="prev">Prev</button>
+            <button id="next">Next</button>
+        </div>
+    </div>
+</body>
+<script>
+    let slider = document.getElementById('slider')
+    let images = [
+        'images/Dhaulagiri.webp',
+        'images/K-2.jpg',
+        'images/Kangchenjunga.webp',
+        'images/Lhotse.jpg',
+        'images/Makalu.jpg',
+        'images/Mount-Everest1.jpg'
+    ];
+    let description = {
+        "images/Dhaulagiri.webp": {
+            name: 'Dhaulagiri',
+            height: "8,167m",
+            place: "Nepal"
+        },
+        'images/K-2.jpg': {
+            name: 'K-2',
+            height: "8,611m",
+            place: "Pakistan/China"
+        },
+        'images/Kangchenjunga.webp': {
+            name: 'Kangchenjunga',
+            height: '8,586m',
+            place: 'Himalayas, Nepal/India'
+        },
+        'images/Lhotse.jpg': {
+            name: 'Lhotse',
+            height: '8,516m',
+            place: 'Himalayas, Nepal/Tibet Autonomous Region, China'
+        },
+        'images/Makalu.jpg': {
+            name: 'Makalu',
+            height: '8,485m',
+            place: 'Himalayas, Nepal/Tibet Autonomous Region, China'
+        },
+
+        'images/Mount-Everest1.jpg': {
+            name: 'Mount-Everest',
+            height: '8,848m',
+            place: 'Himalayas, Nepal/Tibet Autonomous Region, China'
+
+        }
+
+    };
+    let prev = document.getElementById('prev')
+    let next = document.getElementById('next')
+    let counter = 0
+    function updateDescription() {
+        slider.src = images[counter];
+        document.getElementById('name').innerHTML = description[images[counter]].name;
+        document.getElementById('height').innerHTML = description[images[counter]].height;
+        document.getElementById('place').innerHTML = description[images[counter]].place;
+    }
+    function nextimage() {
+        counter = (counter + 1) % images.length
+        slider.src = images[counter]
+        updateDescription()
+
+    }
+    function previmage() {
+        counter = (counter - 1 + images.length) % images.length
+        slider.src = images[counter]
+        updateDescription()
+
+    }
+    next.addEventListener('click', nextimage)
+    prev.addEventListener('click', previmage)
+</script>
+
+</html>
